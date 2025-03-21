@@ -23,26 +23,34 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex item-center justify-between py-5 font-medium">
-      <Link to={"/"}>
-        <img src={assets.logo} className="w-36" alt="" />
-      </Link>
+    <div className="flex item-center justify-between py-5  font-semibold">
+      <ul className="inline-flex items-end text-4xl ">
+        <Link to="/">
+          <img src={assets.logo} className="w-14" alt="" />
+        </Link>
+        <NavLink
+          to="/"
+          className="hidden lg:flex text-gray-700 font-bold sm:absolute px-11 py-2"
+        >
+          zyShop
+        </NavLink>
+      </ul>
 
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
-          <p>HOME</p>
+          <h2>HOME</h2>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
         <NavLink to="/collection" className="flex flex-col items-center gap-1">
-          <p>COLLECTION</p>
+          <h2>COLLECTION</h2>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
         <NavLink to="/about" className="flex flex-col items-center gap-1">
-          <p>ABOUT</p>
+          <h2>ABOUT</h2>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
         <NavLink to="/contact" className="flex flex-col items-center gap-1">
-          <p>CONTACT</p>
+          <h2>CONTACT</h2>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
       </ul>
@@ -97,7 +105,7 @@ const Navbar = () => {
 
       {/* SIDEBAR MENU FOR SMALL SCREEN */}
       <div
-        className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${
+        className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all z-20 ${
           visible ? "w-full" : "w-0"
         }`}
       >

@@ -73,13 +73,13 @@ const Orders = () => {
                 </div>
                 <p className="mt-1">
                   Date:{" "}
-                  <span className="text-gray-400">
+                  <span className="text-gray-800">
                     {new Date(item.date).toDateString()}
                   </span>
                 </p>
                 <p className="mt-1">
                   Payment:{" "}
-                  <span className="text-gray-400">{item.paymentMethod}</span>
+                  <span className="text-gray-800">{item.paymentMethod}</span>
                 </p>
               </div>
             </div>
