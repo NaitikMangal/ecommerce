@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { useContext, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
@@ -20,6 +20,14 @@ const Navbar = () => {
     localStorage.removeItem("token");
     setToken("");
     setCartItems({});
+  };
+
+  const handleSearchClick = () => {
+    if (location.pathname !== "/collection") {
+      navigate("/collection"); // Redirect to collection page if not on it
+    } else {
+      setShowSearch(true); // Show the search if already on the collection page
+    }
   };
 
   return (
@@ -59,7 +67,7 @@ const Navbar = () => {
         <img
           src={assets.search_icon}
           className="w-5 cursor-pointer"
-          onClick={() => setShowSearch(true)}
+          onClick={handleSearchClick} // Use the new function
           alt=""
         />
 
