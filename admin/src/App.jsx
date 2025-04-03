@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import Login from "./components/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PaymentTracking from "./pages/PaymentTracking";
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 export const currency = "$";
@@ -37,6 +38,10 @@ const App = () => {
                 <Route path="/add" element={<Add token={token} />} />
                 <Route path="/list" element={<List token={token} />} />
                 <Route path="/order" element={<Order token={token} />} />
+                <Route
+                  path="/tracking"
+                  element={<PaymentTracking token={token} />}
+                />
               </Routes>
             </div>
           </div>

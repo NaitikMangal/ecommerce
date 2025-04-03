@@ -6,10 +6,21 @@ import ProductItem from "./ProductItem";
 const BestSeller = () => {
   const { products } = useContext(ShopContext);
   const [bestSeller, setBestSeller] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const bestProducts = products.filter((item) => item.bestSeller);
-    setBestSeller(bestProducts.slice(0, 5));
+    try {
+      setLoading(true);
+      const bestProducts = products.filter(
+        (item) => item.bestseller === "true"
+      );
+      setBestSeller(bestProducts.slice(0, 5)); // Show top 5 best sellers
+    } catch (err) {
+      setError("Failed to load best sellers.");
+    } finally {
+      setLoading(false);
+    }
   }, [products]);
 
   return (
